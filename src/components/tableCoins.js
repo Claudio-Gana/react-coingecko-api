@@ -1,4 +1,9 @@
 import React from "react";
+import CoinRow from "./CoinRow";
+
+const titles = ['#','Coin', 'Price', 'Price Change','24H Volume']
+
+
 
 const TableCoins = ({coins})=>{
 
@@ -7,17 +12,15 @@ const TableCoins = ({coins})=>{
         <table className="table table-dark mt-4 table-hover">
             <thead>
                 <tr>
-                    <td>
-                        className
-                    </td>
+                    {titles.map((title)=>
+                        <td>{title}</td>
+                    )}
                 </tr>
             </thead>
 
             <tbody>
-                {coins.map(coin=>(
-                    <tr key = {coin.name}>
-                        <td>{coin.name}</td>
-                    </tr>
+                {coins.map((coin,index)=>(
+                    <CoinRow coin={coin} key={index} index={index + 1} />
                 ))}
             </tbody>
 
