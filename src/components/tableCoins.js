@@ -1,13 +1,29 @@
 import React from "react";
 
-const tableCoins = ()=>{
+const TableCoins = ({coins})=>{
+
 
     return(
+        <table className="table table-dark mt-4 table-hover">
+            <thead>
+                <tr>
+                    <td>
+                        className
+                    </td>
+                </tr>
+            </thead>
 
-        <div>
-            table
-        </div>
+            <tbody>
+                {coins.map(coin=>(
+                    <tr key = {coin.name}>
+                        <td>{coin.name}</td>
+                    </tr>
+                ))}
+            </tbody>
+
+        </table>
+        
     )
 };
 
-export default tableCoins;
+export default TableCoins;
