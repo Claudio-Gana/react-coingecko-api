@@ -5,7 +5,7 @@ const titles = ['#','Coin', 'Price', 'Price Change','24H Volume']
 
 
 
-const TableCoins = ({coins})=>{
+const TableCoins = ({coins, search})=>{
 
 
     return(
