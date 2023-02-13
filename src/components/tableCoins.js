@@ -1,7 +1,7 @@
 import React from "react";
 import CoinRow from "./CoinRow";
 
-const titles = ['#', 'Coin', 'Price', 'Price Change', '24H Volume']
+const titles = ['#', 'Coin', 'Price(US)', 'Price Change(%)', '24H Volume']
 
 
 
