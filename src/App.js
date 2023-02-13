@@ -9,28 +9,29 @@ import TableCoins from './components/TableCoins'
 function App() {
 
   const [coins, setCoins] = useState([])
-  const {search, setSearch} = useState ('') 
+  const [search, setSearch] = useState("");
 
-  const getData = async () =>{
+  const getData = async () => {
     const res = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
     console.log(res.data)
     setCoins(res.data)// res.data es un arreglo con 100 elementos y aqui le digo, que actualice la variable coins con esos 100 datos
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getData()
-  },[])
+  }, [])
 
   // en TableCoins de abajo, le digo a table coins que voy a pasarle una propiedad que se llama coins y como valor le pasare el coins creado mas arriba
   return (
-   <div className='container'>
+    <div className='container'>
       <div className='row'>
         <h1>Criptomarket</h1>
-        <input type="text" placeholder='buscar moneda' className='form-control bg-dark text-light border-0 mt-4 text-center' onChange={e=> setSearch(e.target.value)} />
-        
-        <TableCoins coins={coins} search={search}/> 
+        <input type="text" placeholder='buscar moneda' className='form-control bg-dark text-light border-0 mt-4 text-center'
+          onChange={e => setSearch(e.target.value)} />
+
+        <TableCoins coins={coins} search={search} />
       </div>
-   </div>
+    </div>
   );
 }
 
